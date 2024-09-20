@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #000;
+        }
+        input {
+            margin: 10px 0;
+            padding: 5px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Discount Calculator</h2>
+    <label for="price">Price:</label>
+    <input type="number" id="price" placeholder="Enter price">
+
+    <label for="discount">Discount (%):</label>
+    <input type="number" id="discount" placeholder="Enter discount percentage">
+
+    <label for="name">Name of Item:</label>
+    <input type="text" id="name" placeholder="Enter item name">
+
+    <button onclick="calculateDiscount()">Calculate</button>
+
+    <div class="output">
+        <p>The product name is <span id="productName"></span> and it costs <span id="productPrice"></span>.<br>  
+        The discount would be <span id="discountAmount"></span>.<br>
+        Total bill after discount would be <span id="totalPrice"></span>.</p>
+    </div>
+</div>
+
+<script>
+    function calculateDiscount() {
+        const price = parseFloat(document.getElementById('price').value);
+        const discount = parseFloat(document.getElementById('discount').value);
+        const itemName = document.getElementById('name').value;
+
+        if (isNaN(price) || isNaN(discount) || !itemName) {
+            alert("Please enter valid inputs!");
+            return;
+        }
+
+        const discountAmount = (price * discount) / 100;
+        const totalPrice = price - discountAmount;
+
+        document.getElementById('productName').innerText = itemName;
+        document.getElementById('productPrice').innerText = $${price.toFixed(2)};
+        document.getElementById('discountAmount').innerText = $${discountAmount.toFixed(2)};
+        document.getElementById('totalPrice').innerText = $${totalPrice.toFixed(2)};
+    }
+</script>
+
+</body>
+</html>
